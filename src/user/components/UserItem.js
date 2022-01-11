@@ -1,3 +1,4 @@
-const UserItem = (props) => {};
 import "./UserItem.css";
+const UserItem = (props) => {};
+
 export default UserItem;
