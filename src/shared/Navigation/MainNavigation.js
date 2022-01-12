@@ -4,6 +4,7 @@ import "./MainNavigation.css";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
+import Backdrop from "./Backdrop";
 const MainNavigation = (props) => {
   const [drawerIsOpen, setdrawerIsOpen] = useState(false);
   const openDrawer = () => {
@@ -14,6 +15,7 @@ const MainNavigation = (props) => {
   };
   return (
     <>
+      {drawerIsOpen && <Backdrop onClick={closeDrawer} />}
       {drawerIsOpen ? (
         <SideDrawer>
           <nav className="main-navigation__drawer-nav">
