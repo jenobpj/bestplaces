@@ -6,6 +6,9 @@ import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 const MainNavigation = (props) => {
   const [drawerIsOpen, setdrawerIsOpen] = useState(false);
+  const openDrawer = () => {
+    setdrawerIsOpen(true);
+  };
   return (
     <>
       {drawerIsOpen ? (
@@ -16,7 +19,7 @@ const MainNavigation = (props) => {
         </SideDrawer>
       ) : null}
       <MainHeader>
-        <button className="main-navigation__menu-btn ">
+        <button className="main-navigation__menu-btn " onClick={openDrawer}>
           <span />
           <span />
           <span />
