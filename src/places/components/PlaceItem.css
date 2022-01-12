@@ -28,3 +28,7 @@
   text-align: center;
   border-top: 1px solid #ccc;
 }
+.place-item__actions button,
+.place-item__actions a {
+  margin: 0.5rem;
+}
