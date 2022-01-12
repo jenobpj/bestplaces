@@ -3,7 +3,7 @@ import "./PlaceItem.css";
 const PlaceItem = (props) => {
   return (
     <li className="place-item">
-      <Card className="place-item__image">
+      <Card className="place-item__content">
         <div className="place-item__image">
           <img src={props.image} alt={props.title} />
         </div>
