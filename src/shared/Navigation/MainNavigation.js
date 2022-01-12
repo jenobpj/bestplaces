@@ -9,6 +9,9 @@ const MainNavigation = (props) => {
   const openDrawer = () => {
     setdrawerIsOpen(true);
   };
+  const closeDrawer = () => {
+    setdrawerIsOpen(false);
+  };
   return (
     <>
       {drawerIsOpen ? (
