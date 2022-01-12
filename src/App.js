@@ -3,6 +3,7 @@ import "./App.css";
 import Newplaces from "./places/pages/NewPlace";
 import MainNavigation from "./shared/Navigation/MainNavigation";
 import Users from "./user/pages/Users";
+import UserPlaces from "./places/pages/UserPlaces";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Users />} />
+            <Route path="/:userId/place" element={<UserPlaces />} />
             <Route path="/places/new" element={<Newplaces />} />
           </Routes>
         </main>
