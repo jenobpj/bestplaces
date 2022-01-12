@@ -1,7 +1,7 @@
 import Card from "../../shared/Card";
 import PlaceItem from "./PlaceItem";
 import "./PlaceList.css";
-PlaceList = (props) => {
+const PlaceList = (props) => {
   if (props.item.length === 0) {
     return (
       <div className="place-list center">
