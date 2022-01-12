@@ -1,6 +1,6 @@
 import Card from "../../shared/Card";
 import "./PlaceItem.css";
-PlaceItem = (props) => {
+const PlaceItem = (props) => {
   return (
     <li className="place-item">
       <Card className="place-item__image">
