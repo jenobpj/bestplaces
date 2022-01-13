@@ -10,7 +10,7 @@ const ModalOverlay = (props) => {
       </header>
       <form
         onSubmit={
-          props.onSubmit ? props.onSubmit : (event) => event.preventDefault
+          props.onSubmit ? props.onSubmit : (event) => event.preventDefault()
         }
       >
         <div className={`modal__content ${props.contentClass}`}>
@@ -25,17 +25,19 @@ const ModalOverlay = (props) => {
   return ReactDOM.createPortal(content, document.getElementById("modal-hook"));
 };
 const Modal = (props) => {
-  <>
-    {props.show && <Backdrop onClick={props.onCancel} />}
-    <CSSTransition
-      in={props.show}
-      mountOnEnter
-      unmountOnExit
-      timeout={200}
-      classNames="modal"
-    >
-      <ModalOverlay {...props} />
-    </CSSTransition>
-  </>;
+  return (
+    <>
+      {props.show && <Backdrop onClick={props.onCancel} />}
+      <CSSTransition
+        in={props.show}
+        mountOnEnter
+        unmountOnExit
+        timeout={200}
+        classNames="modal"
+      >
+        <ModalOverlay {...props} />
+      </CSSTransition>
+    </>
+  );
 };
 export default Modal;
