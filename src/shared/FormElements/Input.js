@@ -1,8 +1,9 @@
-import { useReducer, useEffect } from "react";
-import "./Input.css";
-import { validate } from "../util/Validators";
+import React, { useReducer, useEffect } from "react";
 
-const InputReducer = (state, action) => {
+import { validate } from "../util/Validators";
+import "./Input.css";
+
+const inputReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE":
       return {
@@ -22,16 +23,18 @@ const InputReducer = (state, action) => {
 };
 
 const Input = (props) => {
-  const [inputState, dispatch] = useReducer(InputReducer, {
-    value: props.value || "",
+  const [inputState, dispatch] = useReducer(inputReducer, {
+    value: props.initialValue || "",
     isTouched: false,
-    isValid: props.valid || false,
+    isValid: props.initialValid || false,
   });
+
   const { id, onInput } = props;
   const { value, isValid } = inputState;
+
   useEffect(() => {
     onInput(id, value, isValid);
-  }, [id, value, isValid]);
+  }, [id, value, isValid, onInput]);
 
   const changeHandler = (event) => {
     dispatch({
@@ -40,9 +43,13 @@ const Input = (props) => {
       validators: props.validators,
     });
   };
+
   const touchHandler = () => {
-    dispatch({ type: "TOUCH" });
+    dispatch({
+      type: "TOUCH",
+    });
   };
+
   const element =
     props.element === "input" ? (
       <input
@@ -62,6 +69,7 @@ const Input = (props) => {
         value={inputState.value}
       />
     );
+
   return (
     <div
       className={`form-control ${
@@ -74,4 +82,5 @@ const Input = (props) => {
     </div>
   );
 };
+
 export default Input;
