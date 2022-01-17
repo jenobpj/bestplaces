@@ -1,13 +1,14 @@
 import Card from "../../shared/Card";
 import PlaceItem from "./PlaceItem";
 import "./PlaceList.css";
+import Button from "../../shared/FormElements/Button";
 const PlaceList = (props) => {
   if (props.item.length === 0) {
     return (
       <div className="place-list center">
         <Card>
           <h2>No places found.Maybe create one ?</h2>
-          <button>Share Place</button>
+          <Button to="/places/new">Share Place</Button>
         </Card>
       </div>
     );
